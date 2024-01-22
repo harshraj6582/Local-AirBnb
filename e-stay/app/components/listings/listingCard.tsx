@@ -37,6 +37,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
   actionId = '',
   currentUser,
 }) => {
+    
+    
   const router = useRouter();
   const { getByValue } = useCountries();
 
@@ -73,6 +75,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   }, [reservation]);
 
   return (
+    <ClientOnly>
     <div 
       onClick={() => router.push(`/listings/${data.id}`)} 
       className="col-span-1 cursor-pointer group"
@@ -134,6 +137,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         )}
       </div>
     </div>
+    </ClientOnly>
    );
 }
  
